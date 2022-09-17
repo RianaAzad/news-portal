@@ -4,11 +4,51 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>News Network</title>
+    <script src="https://kit.fontawesome.com/ae1b93d454.js" crossorigin="anonymous"></script>
     <!-- bootstrap link -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
   </head>
-  <body>
-    <h1>News Network</h1>
+  <body class="container">
+
+    <header>
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg bg-light border-bottom">
+            <div class="container-fluid">
+              
+                <a class="navbar-brand" href="#"><span class="bg-primary p-2 ">News</span>  Network</a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              
+              <div class="d-flex">
+                <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0 d-flex ">
+                      <li id="news" class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">News</a>
+                      </li>
+                      <li id="blog" class="nav-item">
+                        <a class="nav-link active" href="#">Blog</a>
+                      </li>
+                      <li class="nav-item">
+                        <i class="fa-solid fa-user pt-2 mt-1 px-4"></i>
+                      </li>
+                    </ul>
+                  </div>
+              </div>
+            </div>
+          </nav>
+          <!-- categories -->
+          <div id="categories" class="py-3 bg-light d-lg-flex d-sm-block justify-content-around">
+
+          </div>
+    </header>
+
+    <main>
+        <!-- main news card  -->
+        <div id="newsCard">
+            
+        </div>
+    </main>
 
 
     <!-- bootstrap link -->
