@@ -6,13 +6,6 @@ function defaultNews(){
   .catch(error => console.log(error))
 }
 defaultNews();
-// function openNews(){
-//   const url = `https://openapi.programming-hero.com/api/news/categories`;
-//   fetch(url)
-//   .then(res => res.json())
-//   .then(data => displayCategory(data.data.news_category))
-// }
-// openNews()
 
 document.getElementById('news').addEventListener('click', function(){
     const url = `https://openapi.programming-hero.com/api/news/categories`;
@@ -40,7 +33,7 @@ function fetchNews(categoryId){
  const newsContainer = document.getElementById('newsCard');
  newsContainer.classList.remove('d-none');
  const newsInfoContainer = document.getElementById('news-info');
- newsInfoContainer.classList.remove('d-none'); 
+ newsInfoContainer.classList.remove('d-none');
 
 
    // spinner starts 
@@ -55,13 +48,11 @@ function fetchNews(categoryId){
 function displayNews(allNews){
     const newsField = document.getElementById('newsCard');
     newsField.innerText= '';
-    let count = 0;
-    
+    var count = 0;
     allNews.forEach(news =>{
-        console.log(news);
-        count++;
         
         const newsDiv = document.createElement('div');
+        count++;
         newsDiv.innerHTML = `
         <div onclick="loadNewsDetail('${news._id}')" class="card mb-3 w-100" data-bs-toggle="modal" data-bs-target="#newsModal">
 
@@ -72,12 +63,13 @@ function displayNews(allNews){
                   <div class="col-md-8 p-4">
                     <div class="card-body">
                       <h5 class="card-title">${news.title}</h5>
-                      <p class="card-text">${news.details.slice(0,200)}</p>
-                <div class="d-lg-flex py-sm-2 justify-content-between">
-                      <div><span class="text-muted py-2">${news.author.name}<br>
-                ${news.author.published_date.slice(0,10)}</span></div>
-                <div class="py-2">
-                <i class="fa-solid fa-eye text-muted"></i><span class="text-muted"> ${news.total_view}</span>
+                      <p class="card-text">${news.details? news.details.slice(0,200) : 'No data found'}</p>
+                <div class="py-sm-2 d-lg-flex justify-content-between">
+                <div class="d-flex"><img style="height:45px;" src="${news.author.img}">
+                <div><span class="text-muted p-4">${news.author.name}</span><br><span class="px-4">
+                ${news.author.published_date? news.author.published_date.slice(0,10) : 'No data found'}</span></div></div>
+                <div class="py-3 d-flex">
+                <div><i class="fa-solid fa-eye text-muted"></i></div><div class="text-muted px-2"> ${news.total_view}</div>
                 </div>
                 <div class="py-2">
                 
@@ -108,7 +100,6 @@ function displayNews(allNews){
     toggleSpinner(false);
     newsField.innerText = 'Sorry! No news found form this category';
   }
-   
 }
 
 function loadNewsDetail(newsId){
@@ -151,7 +142,8 @@ showBlogs = () =>{
  const newsContainer = document.getElementById('newsCard');
  newsContainer.classList.add('d-none');
  const newsInfoContainer = document.getElementById('news-info');
- newsInfoContainer.classList.add('d-none'); 
+ newsInfoContainer.classList.add('d-none');
+ 
 }
 const toggleSpinner = isLoading => {
   const loaderSection = document.getElementById('loader');

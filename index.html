@@ -15,11 +15,11 @@
   body{
     font-family: 'Poppins', sans-serif;
 }
-li:hover{
+/* li:hover{
   background-color:lightcyan;
   border: 2px solid darkcyan;
   border-radius: 5px;
-}
+} */
 </style>
   </head>
   <body class="container bg-info p-2 text-dark bg-opacity-10">
@@ -65,9 +65,9 @@ li:hover{
 
       <section id="news-info">
         <div id="items-found" class="my-4 p-2 bg-white rounded-2">
-          <span id="number-of-items">0</span> items found.
+          <span id="number-of-items"></span> items found.
         </div>
-        
+      </section>
 
         <!-- main news card  -->
         <div id="newsCard" class="py-5 px-5">
@@ -75,47 +75,44 @@ li:hover{
         </div>
 
         <!-- blog section -->
-        <section>
-          <div id="blogs-container" class="bg-dark text-white rounded-3 d-none">
-            <div class="accordion" id="accordionPanelsStayOpenExample">
-              <div class="accordion-item">
-                <h2 class="accordion-header" id="panelsStayOpen-headingOne">
-                  <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
-                    What are the differences between var, let and const?
-                  </button>
-                </h2>
-                <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingOne">
-                  <div class="accordion-body">
-                    <strong>The scope of a var variable is functional scope whereas the scope of a let and const variable is block scope.</strong> var variables can be updated and re-declared within its scope; let variables can be updated but not re-declared; const variables can neither be updated nor re-declared. They are all hoisted to the top of their scope. var and let can be declared without initialization but const can't be declared without initialization.
-                  </div>
-                </div>
-              </div>
-              <div class="accordion-item">
-                <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
-                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false" aria-controls="panelsStayOpen-collapseTwo">
-                    What are the differences between arrow function and regular funcion?
-                  </button>
-                </h2>
-                <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingTwo">
-                  <div class="accordion-body">
-                    <strong>The first and most obvious difference between arrow functions and regular functions is their syntax.</strong> Arrow function — also called fat arrow function— is a new feature introduced in ES6 that is a more concise syntax for writing function expressions. While both regular JavaScript functions and arrow functions work in a similar manner, there are certain differences between them. Apart from syntax the other differences are arguments binding, use of the keywork 'this' and 'new'. The behavior of this inside of an arrow function differs considerably from the regular function's this behavior. A regular function can easitly construct object but an arrow function can not be used as a constructor.
-                  </div>
-                </div>
-              </div>
-              <div class="accordion-item">
-                <h2 class="accordion-header" id="panelsStayOpen-headingThree">
-                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false" aria-controls="panelsStayOpen-collapseThree">
-                   What's the difference among map(), forEach(), filter(), find()?
-                  </button>
-                </h2>
-                <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingThree">
-                  <div class="accordion-body">
-                    <strong>The map(), forEach(), filter(), find() executes the provided function once for each element in an array.</strong> .forEach(), is used to execute the same code on every element in an array but does not change the array and it returns undefined. .map() executes the same code on every element in an array and returns a new array with the updated elements. .filter() checks every element in an array to see if it meets a certain criteria and returns a new array with the elements that return truthy for the criteria. Function .find() is also a search function like the previous but they differ in one small detail — this function returns only one match in an array. If in an array is more than one result, the function will return the first that has matched.
-                  </div>
+        <section onclick="showBlogs()" class="d-none" id="blogs-container">
+          <div class="accordion" id="accordionPanelsStayOpenExample">
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="panelsStayOpen-headingOne">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
+                  Accordion Item #1
+                </button>
+              </h2>
+              <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingOne">
+                <div class="accordion-body">
+                  <strong>This is the first item's accordion body.</strong> It is shown by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
                 </div>
               </div>
             </div>
-
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false" aria-controls="panelsStayOpen-collapseTwo">
+                  Accordion Item #2
+                </button>
+              </h2>
+              <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingTwo">
+                <div class="accordion-body">
+                  <strong>This is the second item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="panelsStayOpen-headingThree">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false" aria-controls="panelsStayOpen-collapseThree">
+                  Accordion Item #3
+                </button>
+              </h2>
+              <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingThree">
+                <div class="accordion-body">
+                  <strong>This is the third item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+                </div>
+              </div>
+            </div>
           </div>
         </section>
       
