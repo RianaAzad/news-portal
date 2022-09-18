@@ -27,7 +27,7 @@ function displayCategory (data){
     for(const category of data){
         const categoryDiv = document.createElement('div');
         categoryDiv.innerHTML = `
-        <div onclick="fetchNews('${category.category_id}')" id="${category.category_id}" class="d-flex">${category.category_name}</div>
+        <div onclick="fetchNews('${category.category_id}')" id="${category.category_id}" class="d-flex" onMouseOver="this.style.color='#2bd3cf'" onMouseOut="this.style.color='#FFFFFF'">${category.category_name}</div>
         `;
 
         categoryField.appendChild(categoryDiv);
@@ -50,6 +50,7 @@ function fetchNews(categoryId){
     fetch(url)
     .then(res => res.json())
     .then(data => displayNews(data.data))
+    .catch(error => console.log(error))
 }
 function displayNews(allNews){
     const newsField = document.getElementById('newsCard');
