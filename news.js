@@ -14,6 +14,8 @@ document.getElementById('news').addEventListener('click', function(){
     .then(data => displayCategory(data.data.news_category))
 })
 function displayCategory (data){
+  const categoriesField = document.getElementById('categories-field');
+ categoriesField.classList.remove('d-none');
     const categoryField = document.getElementById('categories');
     categoryField.innerText = '';
     
@@ -34,7 +36,8 @@ function fetchNews(categoryId){
  newsContainer.classList.remove('d-none');
  const newsInfoContainer = document.getElementById('news-info');
  newsInfoContainer.classList.remove('d-none');
-
+ const categoriesField = document.getElementById('categories-field');
+ categoriesField.classList.remove('d-none');
 
    // spinner starts 
    toggleSpinner(true);
@@ -143,7 +146,8 @@ showBlogs = () =>{
  newsContainer.classList.add('d-none');
  const newsInfoContainer = document.getElementById('news-info');
  newsInfoContainer.classList.add('d-none');
- 
+ const categoriesField = document.getElementById('categories-field');
+ categoriesField.classList.add('d-none');
 }
 const toggleSpinner = isLoading => {
   const loaderSection = document.getElementById('loader');
