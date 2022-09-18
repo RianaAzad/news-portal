@@ -110,6 +110,7 @@ function loadNewsDetail(newsId){
 fetch(url)
 .then(res => res.json())
 .then(data => displayNewsDetail(data.data[0]))
+.catch(error => console.log(error))
 }
 function displayNewsDetail(newsDetail){
   const modalTitle = document.getElementById('newsModalLabel');
