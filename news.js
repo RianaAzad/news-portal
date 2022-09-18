@@ -73,13 +73,13 @@ function displayNews(allNews){
                     <div class="card-body">
                       <h5 class="card-title">${news.title}</h5>
                       <p class="card-text">${news.details.slice(0,200)}</p>
-                <div class="d-flex justify-content-between">
-                      <div><span class="text-muted">${news.author.name}<br>
+                <div class="d-lg-flex py-sm-2 justify-content-between">
+                      <div><span class="text-muted py-2">${news.author.name}<br>
                 ${news.author.published_date.slice(0,10)}</span></div>
-                <div>
+                <div class="py-2">
                 <i class="fa-solid fa-eye text-muted"></i><span class="text-muted"> ${news.total_view}</span>
                 </div>
-                <div>
+                <div class="py-2">
                 
                 <i class="fa-solid fa-star text-warning"></i>
                 <i class="fa-solid fa-star text-warning"></i>
@@ -88,7 +88,7 @@ function displayNews(allNews){
                 <i class="fa-regular fa-star-half-stroke text-warning"></i>
                 
                 </div>
-                <div>
+                <div class="py-2">
                 <i class="fa-solid fa-arrow-right text-primary"></i>
                 </div>
                 </div>
