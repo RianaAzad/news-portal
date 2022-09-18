@@ -34,6 +34,14 @@ function displayCategory (data){
    
 }
 function fetchNews(categoryId){
+ const blogsContainer = document.getElementById('blogs-container');
+ blogsContainer.classList.add('d-none');
+ const newsContainer = document.getElementById('newsCard');
+ newsContainer.classList.remove('d-none');
+ const newsInfoContainer = document.getElementById('news-info');
+ newsInfoContainer.classList.remove('d-none'); 
+
+
    // spinner starts 
    toggleSpinner(true);
     // console.log(categoryId);
@@ -71,10 +79,10 @@ function displayNews(allNews){
                 </div>
                 <div>
                 
-                <i class="fa-regular fa-star text-warning"></i>
-                <i class="fa-regular fa-star text-warning"></i>
-                <i class="fa-regular fa-star text-warning"></i>
-                <i class="fa-regular fa-star text-warning"></i>
+                <i class="fa-solid fa-star text-warning"></i>
+                <i class="fa-solid fa-star text-warning"></i>
+                <i class="fa-solid fa-star text-warning"></i>
+                <i class="fa-solid fa-star text-warning"></i>
                 <i class="fa-regular fa-star-half-stroke text-warning"></i>
                 
                 </div>
@@ -128,16 +136,20 @@ function displayNewsDetail(newsDetail){
                   </div>
                 </div>
               </div>
-              <div class="d-flex justify-content-between"><div class="card-text">Publish Date: ${newsDetail.author.published_date}</div>
-              <div>View: ${newsDetail.total_view}</div></div><br>
+              <div class="d-flex justify-content-between"><div class="card-text">Publish Date: ${newsDetail.author? newsDetail.author.published_date.slice(0,10) : 'No data found' }</div>
+              <div><i class="fa-solid fa-eye text-muted"></i> ${newsDetail.total_view}</div></div><br>
               <p">${newsDetail.details}</p>
         `;
   modalBody.appendChild(modalBodyContent);
 }
 
 showBlogs = () =>{
-  const blogContainer = document.getElementById('newsCard');
-  blogContainer.innerText = 'rianaa';
+ const blogsContainer = document.getElementById('blogs-container');
+ blogsContainer.classList.remove('d-none');
+ const newsContainer = document.getElementById('newsCard');
+ newsContainer.classList.add('d-none');
+ const newsInfoContainer = document.getElementById('news-info');
+ newsInfoContainer.classList.add('d-none'); 
 }
 const toggleSpinner = isLoading => {
   const loaderSection = document.getElementById('loader');
