@@ -3,6 +3,7 @@ function defaultNews(){
   fetch(durl)
   .then(res => res.json())
   .then(data => displayNews(data.data))
+  .catch(error => console.log(error))
 }
 defaultNews();
 // function openNews(){
